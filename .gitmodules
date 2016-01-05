@@ -1,6 +1,6 @@
 [submodule "ch3/blastpy"]
-        path = ch3/blastpy
-        url = https://github.com/swkim01/blastpy.git
+	path = ch3/blastpy
+	url = https://github.com/swkim01/blastpy.git
 [submodule "ch4/rest"]
 	path = ch4/rest
 	url = https://github.com/swkim01/rest.git
@@ -23,8 +23,8 @@
 	path = ch8/urobot
 	url = https://github.com/swkim01/urobot.git
 [submodule "ch9/RTIMULib"]
-        path = ch9/RTIMULib
-        url = https://github.com/swkim01/RTIMULib.git
+	path = ch9/RTIMULib
+	url = https://github.com/swkim01/RTIMULib.git
 [submodule "ch10/pyFirmata"]
 	path = ch10/pyFirmata
 	url = https://github.com/tino/pyFirmata.git
@@ -44,5 +44,5 @@
 	path = ch13/mqtt
 	url = https://github.com/swkim01/mqtt.git
 [submodule "ch13/GreenHouse"]
-        path = ch13/GreenHouse
-        url = https://github.com/swkim01/GreenHouse.git
+	path = ch13/GreenHouse
+	url = https://github.com/swkim01/GreenHouse.git
