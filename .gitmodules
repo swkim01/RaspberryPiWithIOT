@@ -1,0 +1,39 @@
+[submodule "ch13/mqtt"]
+	path = ch13/mqtt
+	url = https://github.com/swkim01/mqtt.git
+[submodule "ch8/rccar"]
+	path = ch8/rccar
+	url = https://github.com/swkim01/rccar.git
+[submodule "ch8/urobot"]
+	path = ch8/urobot
+	url = https://github.com/swkim01/urobot.git
+[submodule "ch12/webiopi/webiopi-dht"]
+	path = ch12/webiopi/webiopi-dht
+	url = https://github.com/swkim01/webiopi-dht.git
+[submodule "ch4/rest"]
+	path = ch4/rest
+	url = https://github.com/swkim01/rest.git
+[submodule "ch7/adafruit-pi-cam"]
+	path = ch7/adafruit-pi-cam
+	url = https://github.com/adafruit/adafruit-pi-cam.git
+[submodule "ch6/Adafruit-Raspberry-Pi-Python-Code"]
+	path = ch6/Adafruit-Raspberry-Pi-Python-Code
+	url = https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code.git
+[submodule "ch6/Adafruit_python_DHT"]
+	path = ch6/Adafruit_python_DHT
+	url = https://github.com/adafruit/Adafruit_python_DHT.git
+[submodule "ch11/nodemcu/luatool"]
+	path = ch11/nodemcu/luatool
+	url = https://github.com/4refr0nt/luatool.git
+[submodule "ch6/py-spidev"]
+	path = ch6/py-spidev
+	url = https://github.com/doceme/py-spidev.git
+[submodule "ch10/pyFirmata"]
+	path = ch10/pyFirmata
+	url = https://github.com/tino/pyFirmata.git
+[submodule "ch12/telegram/pytg"]
+	path = ch12/telegram/pytg
+	url = https://github.com/luckydonald/pytg.git
+[submodule "ch12/telegram/python-telegram-bot"]
+	path = ch12/telegram/python-telegram-bot
+	url = https://github.com/leandrotoledo/python-telegram-bot.git
