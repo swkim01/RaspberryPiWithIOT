@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>hellouiload.ui</file>
+  </qresource>
+</RCC>

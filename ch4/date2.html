@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script>
+    function getDate() {
+        var date = document.getElementById('date');
+        var request = new XMLHttpRequest();
+        request.open("GET","/cgi-bin/date2.py",true);
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                //date.innerHTML = request.responseXML;
+                date.innerHTML = request.responseText;
+            }
+        };
+        request.send();
+    }
+    </script>
+</head>
+<body>
+<input type="button" value="Get Date" id="GetDate" onclick="getDate();"/>
+<H2>Date: <span id="date"> None </span></H2>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" charset="utf-8" content="initial-scale=1.0, user-scalable=no">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin:0px; padding: 0px }
+  #map { height: 100% }
+</style>
+<script type="text/javascript">
+  var gps_location;
+  var gps_ll;
+  var map;
+  var marker;
+
+  // gps 로그 파싱  
+  function refresh_location() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if(request.readyState==4 && request.status==200) {
+         gps_location = eval('('+request.responseText+')');
+      }
+    }
+    request.open("GET","getLocation");
+    request.send();
+  }
+
+  // 위치 이동
+  function setcenter() {
+    if(gps_location == null) gps_ll = null;
+    else gps_ll = new google.maps.LatLng(gps_location['lat'], gps_location['lon']);
+    map.setCenter(gps_ll);
+    marker.setOptions({
+        position: gps_ll,
+        map: map
+    });
+  }
+
+  // 초기화
+  function initialize() {
+    var latlng = new google.maps.LatLng(36.35,127.385);
+    var myOptions = {
+      zoom: 17,
+      center: latlng,
+      streetViewControl: false,
+      zoomControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map"), myOptions);
+    marker = new google.maps.Marker({
+      position: map.getCenter(),
+      map: map
+    });
+    setupEvents();
+  }
+
+  // 이벤트 반복
+  function setupEvents() {
+    setInterval(function() {
+       refresh_location();
+       setcenter();
+    }, 1500);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+<body style="margin:0px; padding:0px;">
+    <div id="map"></div>
+</body>
+</html>
