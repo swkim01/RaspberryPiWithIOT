@@ -46,3 +46,6 @@
 [submodule "ch13/GreenHouse"]
 	path = ch13/GreenHouse
 	url = https://github.com/swkim01/GreenHouse.git
+[submodule "fritzing"]
+	path = fritzing
+	url = https://github.com/swkim01/fritzing.git
