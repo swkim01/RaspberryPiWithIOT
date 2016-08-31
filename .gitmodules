@@ -13,6 +13,9 @@
 [submodule "ch6/py-spidev"]
 	path = ch6/py-spidev
 	url = https://github.com/doceme/py-spidev.git
+[submodule "ch6/waveshare-dtoverlays"]
+	path = ch6/waveshare-dtoverlays
+	url = https://github.com/swkim01/waveshare-dtoverlays.git
 [submodule "ch7/adafruit-pi-cam"]
 	path = ch7/adafruit-pi-cam
 	url = https://github.com/adafruit/adafruit-pi-cam.git
