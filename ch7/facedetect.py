@@ -2,19 +2,18 @@
 
 import numpy as np
 import cv2
-import cv2.cv as cv
 
 def clock():
     return cv2.getTickCount() / cv2.getTickFrequency()
 
 def draw_str(dst, (x, y), s):
-    cv2.putText(dst, s, (x+1, y+1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness = 2, lineType=cv2.CV_AA)
-    cv2.putText(dst, s, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.0, (255, 255, 255), lineType=cv2.CV_AA)
+    cv2.putText(dst, s, (x+1, y+1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness = 2, lineType=cv2.LINE_AA)
+    cv2.putText(dst, s, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.0, (255, 255, 255), lineType=cv2.LINE_AA)
 
 def detect(img, cascade):
     #rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
     #rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(80, 80), flags = cv.CV_HAAR_SCALE_IMAGE)
-    rects = cascade.detectMultiScale(img, scaleFactor=1.1, minNeighbors=3, minSize=(80, 80), flags = cv.CV_HAAR_SCALE_IMAGE)
+    rects = cascade.detectMultiScale(img, scaleFactor=1.1, minNeighbors=3, minSize=(80, 80), flags = cv2.CASCADE_SCALE_IMAGE)
     if len(rects) == 0:
         return []
     rects[:,2:] += rects[:,:2]
@@ -34,8 +33,8 @@ if __name__ == '__main__':
     #nested = cv2.CascadeClassifier(nested_fn)
 
     cam = cv2.VideoCapture(0)
-    cam.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 320)
-    cam.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 240)
+    cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     while True:
         ret, img = cam.read()
