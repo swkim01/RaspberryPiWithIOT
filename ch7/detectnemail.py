@@ -1,4 +1,4 @@
-import cv, cv2
+import cv2
 import numpy as np
 import motion
 import smtplib
@@ -36,8 +36,8 @@ def sendmail(image):
 if __name__ == "__main__":
     thresh = 16
     cam = cv2.VideoCapture(0)
-    cam.set(cv.CV_CAP_PROP_FRAME_WIDTH, 320)
-    cam.set(cv.CV_CAP_PROP_FRAME_HEIGHT, 240)
+    cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
     if cam.isOpened() == False:
         print "Cam isn't opened"
         exit()
