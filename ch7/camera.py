@@ -1,10 +1,10 @@
-import cv2, cv
+import cv2
 #import numpy
 
 cam = cv2.VideoCapture(0)
-cam.set(cv.CV_CAP_PROP_FRAME_WIDTH, 640)
-cam.set(cv.CV_CAP_PROP_FRAME_HEIGHT, 480)
-cam.set(cv.CV_CAP_PROP_FPS, 7)
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cam.set(cv2.CAP_PROP_FPS, 7)
 #cv2mat = numpy.array([])
 
 while True:
