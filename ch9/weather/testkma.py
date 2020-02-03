@@ -2,9 +2,10 @@
 import math
 try:
     from urllib.request import urlopen #python 3
+    from urllib.error import HTTPError, URLError
 except ImportError:
     from urllib2 import urlopen #python 2
-#import urllib2
+    from urllib2 import HTTPError, URLError
 from xml.dom import minidom
 
 RE = 6371.00877 # 지구 반경(km)
@@ -75,7 +76,7 @@ base_url = "http://www.kma.go.kr/wid/queryDFS.jsp"
 rsd = dfs_ll2xy(lat, lon)
 #url = base_url + '?x=' + str(rsd['x']) + '&y=' + str(rsd['y'])
 url = base_url + '?gridx=' + str(rsd['x']) + '&gridy=' + str(rsd['y'])
-print url
+print(url)
 
 u = urlopen(url)
 #headers = {
@@ -88,8 +89,8 @@ u = urlopen(url)
 try:
     #data = u.readlines()
     data = u.read()
-    print len(data)
-    print u.info()
+    print(len(data))
+    print(u.info())
     dom = minidom.parseString(data)
     items = dom.getElementsByTagName("data")
     for item in items:
@@ -98,10 +99,10 @@ try:
 	# 1. Clear, 2. Partly Cloudy, 3. Mostly Cloudy, 4. Cloudy, 5. Rain, 6. Snow/Rain, 7. Snow
         wfKor = item.getElementsByTagName("wfKor")[0]
         temp = item.getElementsByTagName("temp")[0]
-        print hour.firstChild.data.strip(), \
+        print(hour.firstChild.data.strip(), \
               wfKor.firstChild.data.strip(), \
-              temp.firstChild.data.strip()
-except urllib2.HTTPError, e:
-    print "HTTP error: %d" % e.code
-except urllib2.URLError, e:
-    print "Network error: %s" % e.reason.args[1]
+              temp.firstChild.data.strip())
+except HTTPError as e:
+    print("HTTP error: %d" % e.code)
+except URLError as e:
+    print("Network error: %s" % e.reason.args[1])

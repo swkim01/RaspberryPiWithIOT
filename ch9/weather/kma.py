@@ -2,9 +2,10 @@
 import math
 try:
     from urllib.request import urlopen #python 3
+    from urllib.error import HTTPError, URLError
 except ImportError:
     from urllib2 import urlopen #python 2
-#import urllib2
+    from urllib2 import HTTPError, URLError
 from xml.dom import minidom
 
 RE = 6371.00877 # 지구 반경(km)
@@ -76,8 +77,8 @@ def getWeather(lat, lon):
     try:
         #data = u.readlines()
         data = u.read()
-        #print len(data)
-        #print u.info()
+        #print(len(data))
+        #print(u.info())
         dom = minidom.parseString(data)
         items = dom.getElementsByTagName("data")
         for item in items:
@@ -89,10 +90,10 @@ def getWeather(lat, lon):
                   day.firstChild.data.strip(), \
                   wfKor.firstChild.data.strip(), \
                   temp.firstChild.data.strip() ])
-    except urllib2.HTTPError, e:
-        print "HTTP error: %d" % e.code
-    except urllib2.URLError, e:
-        print "Network error: %s" % e.reason.args[1]
+    except HTTPError as e:
+        print("HTTP error: %d" % e.code)
+    except URLError as e:
+        print("Network error: %s" % e.reason.args[1])
 
     return wdata
 
@@ -108,6 +109,6 @@ if __name__ == '__main__':
     lat = 35.0
     lon = 129.0
     data = getWeather(lat, lon)
-    print data
+    print(data)
     for d in data:
-        print d[0], d[1], d[2], d[3], getWeatherCode(d[2])
+        print(d[0], d[1], d[2], d[3], getWeatherCode(d[2]))
