@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import pygame
 from OpenGL.GL import *
 from OpenGL.GLU import *

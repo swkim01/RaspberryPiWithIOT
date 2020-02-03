@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 import time
 import smbus
 import math
@@ -439,8 +439,8 @@ class MPU6050(object) :
                 cfg_file.write('%d\n' % gz_offset)
                 cfg_file.flush()
 
-        except IOError, err:
-            print 'Could not open offset config file: %s for writing'.format(file_name)
+        except IOError as err:
+            print('Could not open offset config file: %s for writing'.format(file_name))
             cfg_rc = False
 
         return cfg_rc
@@ -467,8 +467,8 @@ class MPU6050(object) :
             self.gy_offset = int(str_gy_offset)
             self.gz_offset = int(str_gz_offset)
 
-        except IOError, err:
-            print 'Could not open offset config file: %s for reading'.format(file_name)
+        except IOError as err:
+            print('Could not open offset config file: %s for reading'.format(file_name))
             cfg_rc = False
 
         return cfg_rc
@@ -505,7 +505,7 @@ if __name__ == '__main__':
 
     mpu = MPU6050()
 
-    print '[(Accelerometer X, Y, Z), Temperature, (Gyroscope X, Y, Z)]'
+    print('[(Accelerometer X, Y, Z), Temperature, (Gyroscope X, Y, Z)]')
     while True:
-        print mpu.read()
+        print(mpu.read())
         time.sleep(1)

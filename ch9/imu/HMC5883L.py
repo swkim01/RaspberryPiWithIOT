@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import smbus
 import math
 
@@ -90,10 +90,10 @@ if __name__ == '__main__':
     mpu = MPU6050.MPU6050()
     hmc = HMC5883L()
 
-    print '[(Magnetometer X, Y, Z)]'
+    print('[(Magnetometer X, Y, Z)]')
     while True:
-        print hmc.read()
+        print(hmc.read())
         data = mpu.read()
-        print data
-        print hmc.calcTiltHeading(data[0], data[1], data[2])
+        print(data)
+        print(hmc.calcTiltHeading(data[0], data[1], data[2]))
         sleep(1) # Output is fun to watch if this is commented out

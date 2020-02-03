@@ -1,14 +1,18 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 import matplotlib
 matplotlib.use('tkagg')
 import pylab
-import Tkinter
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+try:
+    import tkinter as tk
+except ImportError:
+    import Tkinter as tk
+#from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import L3G4200D
 
 l3d4200d = L3G4200D.L3G4200D()
 
-root = Tkinter.Tk()
+root = tk.Tk()
 root.wm_title("L3G4200D Gyro Sensor")
 
 xAchse=pylab.arange(0,100,1)
@@ -38,12 +42,14 @@ ax3.axis([0,100,-200.,200.])
 line3=ax3.plot(xAchse,yAchse,'-')
 
 canvas = FigureCanvasTkAgg(fig, master=root)
-canvas.show()
-canvas.get_tk_widget().pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=1)
+#canvas.show()
+canvas.draw()
+canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
-toolbar = NavigationToolbar2TkAgg( canvas, root )
+#toolbar = NavigationToolbar2TkAgg( canvas, root )
+toolbar = NavigationToolbar2Tk( canvas, root )
 toolbar.update()
-canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=1)
+canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
 values=[0,0,0]
 for i in range(3):
@@ -75,13 +81,15 @@ def _quit():
     root.destroy()  # this is necessary on Windows to prevent
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
 
-button = Tkinter.Button(master=root, text='Quit', command=_quit)
-button.pack(side=Tkinter.BOTTOM)
+button = tk.Button(master=root, text='Quit', command=_quit)
+button.pack(side=tk.BOTTOM)
 
-wScale = Tkinter.Scale(master=root,label="View Width:", from_=3, to=1000,sliderlength=30,length=ax1.get_frame().get_window_extent().width, orient=Tkinter.HORIZONTAL)
-wScale2 = Tkinter.Scale(master=root,label="Generation Speed:", from_=1, to=1000,sliderlength=30,length=ax1.get_frame().get_window_extent().width, orient=Tkinter.HORIZONTAL)
-wScale2.pack(side=Tkinter.BOTTOM)
-wScale.pack(side=Tkinter.BOTTOM)
+#wScale = tk.Scale(master=root,label="View Width:", from_=3, to=1000,sliderlength=30,length=ax1.get_frame().get_window_extent().width, orient=tk.HORIZONTAL)
+wScale = tk.Scale(master=root,label="View Width:", from_=3, to=1000,sliderlength=30,length=ax1.patch.get_window_extent().width, orient=tk.HORIZONTAL)
+#wScale2 = tk.Scale(master=root,label="Generation Speed:", from_=1, to=1000,sliderlength=30,length=ax1.get_frame().get_window_extent().width, orient=tk.HORIZONTAL)
+wScale2 = tk.Scale(master=root,label="Generation Speed:", from_=1, to=1000,sliderlength=30,length=ax1.patch.get_window_extent().width, orient=tk.HORIZONTAL)
+wScale2.pack(side=tk.BOTTOM)
+wScale.pack(side=tk.BOTTOM)
 
 wScale.set(990)
 wScale2.set(wScale2['to']-10)
@@ -89,4 +97,4 @@ wScale2.set(wScale2['to']-10)
 root.protocol("WM_DELETE_WINDOW", _quit)
 root.after(500,DataGenerator)
 root.after(500,RealtimePlotter)
-Tkinter.mainloop()
+tk.mainloop()

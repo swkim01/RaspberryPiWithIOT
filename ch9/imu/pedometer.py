@@ -1,4 +1,7 @@
-import Tkinter as tk
+try:
+    import tkinter as tk
+except:
+    import Tkinter as tk
 import LSM303DLHC
 #import MPU6050
 

@@ -1,4 +1,7 @@
-import Tkinter as tk
+try:
+    import tkinter as tk
+except ImportError:
+    import Tkinter as tk
 import LSM303DLHC
 
 lsm = LSM303DLHC.LSM303DLHC()
@@ -59,7 +62,7 @@ def update():
         var.set("{0:2.2f}".format(float(data[i+3])/100.0))
 
   except ValueError:
-    print "string to float error"
+    print("string to float error")
 
 update()
 root.mainloop()

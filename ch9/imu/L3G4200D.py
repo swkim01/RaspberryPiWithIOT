@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import smbus
 import time
 
@@ -52,7 +52,7 @@ class L3G4200D(object):
         n = (high << 8) | low   # High, low bytes
         return n # 2's complement signed
 
-    def read(self):
+    def readList(self):
         # Read the gyroscope
         low = self.bus.read_byte_data(self.address,
           self.L3G4200D_REGISTER_OUT_X_L)
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     l3d4200d = L3G4200D()
 
     while True:
-        data = l3d4200d.read()
+        data = l3d4200d.readList()
         print("read value is %f,\t %f,\t %f" % (data[0], data[1], data[2]))
         time.sleep(1)
 
