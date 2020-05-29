@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-#-'''- coding: utf-8 -'''-
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui, QtDeclarative
+from PySide2 import QtCore, QtWidgets, QtQuick
 
-app = QtGui.QApplication(sys.argv)
-view = QtDeclarative.QDeclarativeView()
+app = QtWidgets.QApplication(sys.argv)
+view = QtQuick.QQuickView()
 url = QtCore.QUrl('hello.qml')
 view.setSource(url)
 view.show()
