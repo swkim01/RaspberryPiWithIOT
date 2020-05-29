@@ -1,12 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
-app = QtGui.QApplication(sys.argv)
-label = QtGui.QLabel("Hello World")
-#label = QtGui.QLabel("<h2>Hello World</h2>")
-#label = QtGui.QLabel("<font color=blue size=40>Hello World</font>")
+app = QtWidgets.QApplication(sys.argv)
+#label = QtWidgets.QLabel("Hello World")
+label = QtWidgets.QLabel("<h2>Hello World</h2>")
+#label = QtWidgets.QLabel("<font color=blue size=40>Hello World</font>")
 label.show()
 app.exec_()
 sys.exit()

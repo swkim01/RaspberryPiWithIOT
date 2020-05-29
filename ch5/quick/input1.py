@@ -1,19 +1,18 @@
-#!/usr/bin/env python
-#-'''- coding: utf-8 -'''-
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui, QtDeclarative
+from PySide2 import QtCore, QtWidgets, QtQuick
 
 def Print(s):
-    print s
+    print(s)
 
 def Clear(root, text):
     Print("accepted textinput: "+text)
     QtCore.QMetaObject.invokeMethod(root, "clear", QtCore.Qt.DirectConnection)
 
 
-app = QtGui.QApplication(sys.argv)
-view = QtDeclarative.QDeclarativeView()
+app = QtWidgets.QApplication(sys.argv)
+view = QtQuick.QQuickView()
 url = QtCore.QUrl('input.qml')
 view.setSource(url)
 

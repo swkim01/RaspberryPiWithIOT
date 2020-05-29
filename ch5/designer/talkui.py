@@ -1,18 +1,17 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui, QtNetwork
+from PySide2 import QtCore, QtWidgets, QtNetwork
 from talk import *
 from connect import *
 
-class ConnectWindow(QtGui.QDialog):
+class ConnectWindow(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super(ConnectWindow, self).__init__(parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
-class TalkMainWindow(QtGui.QMainWindow):
+class TalkMainWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super(TalkMainWindow, self).__init__(parent)
         self.ui = Ui_TalkWindow()
@@ -27,7 +26,7 @@ class TalkMainWindow(QtGui.QMainWindow):
     def connect(self):
         if not self.connectState:
             cw = ConnectWindow()
-            if cw.exec_() == QtGui.QDialog.Accepted:
+            if cw.exec_() == QtWidgets.QDialog.Accepted:
                 self.socket.connectToHost(cw.ui.server.text(), int(cw.ui.port.text()))
                 if self.socket.waitForConnected(1000):
                     self.name = cw.ui.name.text()
@@ -55,14 +54,14 @@ class TalkMainWindow(QtGui.QMainWindow):
         self.ui.messageEdit.setFocus()
 
     def displayError(self):
-        QtGui.QMessageBox.information(self, "Connection", "Error during connection")
+        QtWidgets.QMessageBox.information(self, "Connection", "Error during connection")
 
     def closeEvent(self, event):
         self.socket.disconnectFromHost()
 
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     tmw = TalkMainWindow()
     tmw.show()
     sys.exit(app.exec_())

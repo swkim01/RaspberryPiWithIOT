@@ -1,5 +1,5 @@
 import sys
-from PySide import QtCore, QtGui, QtUiTools
+from PySide2 import QtCore, QtWidgets, QtUiTools
 
 #def loadUiWidget(uifilename, parent=None):
 #    loader = QtUiTools.QUiLoader()
@@ -10,14 +10,14 @@ from PySide import QtCore, QtGui, QtUiTools
 #    return ui
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     if len(sys.argv) < 2:
-        print "please input the following command:"
-        print "$ python uiload.py xxx.ui"
+        print("please input the following command:")
+        print("$ python uiload.py xxx.ui")
         sys.exit(0)
     loader = QtUiTools.QUiLoader()
     ui = loader.load(sys.argv[1])
-    child = ui.findChild(QtGui.QWidget, "connectButton")
+    child = ui.findChild(QtWidgets.QWidget, "connectButton")
     child.clicked.connect(ui.close)
     ui.show()
     sys.exit(app.exec_())

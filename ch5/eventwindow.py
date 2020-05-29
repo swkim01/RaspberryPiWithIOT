@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
-class EventWindow(QtGui.QWidget):
+class EventWindow(QtWidgets.QWidget):
     def __init__(self):
-        QtGui.QWidget.__init__(self)
+        QtWidgets.QWidget.__init__(self)
         self.setWindowTitle("Event Window")
         self.setGeometry(300, 300, 300, 300)
 
@@ -20,7 +20,7 @@ class EventWindow(QtGui.QWidget):
 
     #def mousePressEvent(self, event):
     def mouseMoveEvent(self, event):
-        print "x=", event.x(), ", y=", event.y()
+        print("x=", event.x(), ", y=", event.y())
         self.points.append((event.x(), event.y()))
         self.update()
 
@@ -34,8 +34,8 @@ class EventWindow(QtGui.QWidget):
 
 
 if __name__ == "__main__" :
-    app = QtGui.QApplication(sys.argv)
-    #button = QtGui.QPushButton('Hello')
+    app = QtWidgets.QApplication(sys.argv)
+    #button = QtWidgets.QPushButton('Hello')
     #button.clicked.connect(hello)
     #button.show()
     ew = EventWindow()

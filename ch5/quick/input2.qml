@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.11
 
 Rectangle {
   id: root
@@ -42,6 +42,7 @@ Rectangle {
       'button': button,
       'textinput': textinput
     }
+    //con.testFunc()
     con.init(root)
   }
 }

@@ -1,5 +1,5 @@
 import sys
-from PySide import QtCore, QtGui, QtUiTools
+from PySide2 import QtCore, QtWidgets, QtUiTools
 
 #def loadUiWidget(uifilename, parent=None):
 #    loader = QtUiTools.QUiLoader()
@@ -10,7 +10,7 @@ from PySide import QtCore, QtGui, QtUiTools
 #    return ui
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     #ui = loadUiWidget("hello.ui")
     loader = QtUiTools.QUiLoader()
     ui = loader.load('./hello.ui')

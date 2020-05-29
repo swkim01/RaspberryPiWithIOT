@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-#-'''- coding: utf-8 -'''-
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui, QtDeclarative, QtNetwork
+from PySide2 import QtCore, QtWidgets, QtQuick, QtNetwork
 
 def sayThis(s):
-    print s
+    print(s)
 
 class Controller(QtCore.QObject):
     def __init__(self, ctx):
@@ -21,20 +20,21 @@ class Controller(QtCore.QObject):
 
     @QtCore.Slot(QtCore.QObject, str)
     def send(self, root, text):
-        #sayThis("clicked sendbutton "+text)
-        self.sendmessage("say %s" % (text))
+        sayThis("clicked sendbutton "+text)
+        self.sendmessage("msg %s" % (text))
         widgets = root.property('widgets')
-        widgets['textinput'].setProperty('text', '')
+        #widgets['textinput'].setProperty('text', '')
+        widgets.property('textinput').setProperty('text', '')
 
     @QtCore.Slot(QtCore.QObject)
     def connect(self, root):
         #sayThis("clicked connectbutton")
         widgets = root.property('widgets')
-        server=widgets['server'].property('text')
-        port=widgets['port'].property('text')
+        server=widgets.property('server').property('text').toString()
+        port=widgets.property('port').property('text').toInt()
         self.socket.connectToHost(server, int(port))
         if self.socket.waitForConnected(1000):
-            self.name = widgets['name'].property('text')
+            self.name = widgets.property('name').property('text').toString()
             self.sendmessage("login %s" % self.name)
 
     def readData(self):
@@ -42,7 +42,7 @@ class Controller(QtCore.QObject):
         self.text += message + '\r\n'
         #sayThis(self.text)
         widgets = self.root.property('widgets')
-        widgets['textedit'].setProperty('text', self.text)
+        widgets.property('textedit').setProperty('text', self.text)
 
     def sendmessage(self, message):
         self.socket.write(message.encode("utf-8"))
@@ -56,8 +56,8 @@ class Controller(QtCore.QObject):
         self.socket.disconnectFromHost()
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
-    view = QtDeclarative.QDeclarativeView()
+    app = QtWidgets.QApplication(sys.argv)
+    view = QtQuick.QQuickView()
     url = QtCore.QUrl('talk.qml')
 
     ctx = view.rootContext()

@@ -1,14 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
-class ListWindow(QtGui.QWidget):
+class ListWindow(QtWidgets.QWidget):
     def __init__(self, model):
-        QtGui.QWidget.__init__(self)
+        QtWidgets.QWidget.__init__(self)
         self.setWindowTitle("List Window")
         self.setGeometry(300, 200, 200, 200)
-        listview = QtGui.QListView(self)
+        listview = QtWidgets.QListView(self)
         self.model = model
         listview.setModel(model)
 
@@ -17,7 +17,7 @@ class ListWindow(QtGui.QWidget):
             model.appendRow(QtGui.QStandardItem("This row number is {}".format(i)))
 
 if __name__ == "__main__" :
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     model = QtGui.QStandardItemModel()
     #model.setFilter("name like '%Im%'")
 

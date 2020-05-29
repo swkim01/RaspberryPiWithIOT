@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-#-*-coding: utf-8-*-
+#!/usr/bin/python3
 
 import random
-from PySide import QtCore, QtNetwork
+from PySide2 import QtCore, QtNetwork
 
 class Server(QtNetwork.QTcpServer):
     def __init__(self, parent=None):
