@@ -40,6 +40,7 @@ def getevents():
         print("HTTP error: %d" % e.code)
     except URLError as e:
         print("Network error: %s" % e.reason.args[1])
+
     return data
 
 @app.route('/dhtchart')

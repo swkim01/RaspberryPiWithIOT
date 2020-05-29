@@ -1,0 +1,33 @@
+<html>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+    namespace = '/livedata';
+
+    //var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+    var socket = io();
+    socket.on('connect', function() {
+	    socket.emit('join_web', {room:'WEB'});
+    });
+
+    var led = "led";
+    var value = 0;
+    function ledControl() {
+        value = !value;
+        var send =(value != 0 ? "ON":"OFF");
+        socket.emit(led, {room:'DEV', data: send});
+    }
+
+    function dhtChart() {
+         window.location.href='/dhtchart';
+    }
+</script>
+</head>
+<body>
+<h1>ESP8266/NODEMCU 제어</h1>
+<h2>LED 제어</h2>
+<input type='button' onClick="ledControl()" value="ON/OFF" />
+<h2>온도/습도 모니터링</h2>
+<input type='button' onClick="dhtChart()" value="모니터링" />
+</body>
+</html>

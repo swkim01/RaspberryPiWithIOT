@@ -1,30 +1,30 @@
-#!/usr/bin/python
-from bottle import route,run,get,response,static_file,request
+#!/usr/bin/python3
+from flask import Flask, render_template
 import threading
 import gps
 import time
 import gpsreceiver
+import json
 
 gpsr = gpsreceiver.GpsReceiver()
 gpsr.daemon = True
 gpsr.start()
 
+app = Flask(__name__, template_folder=".", static_url_path='')
+
 #respone json for gps location
-@get('/getLocation')
+@app.route('/getLocation')
 def get_location():
-    return gpsr.getLocation()
+    return json.dumps(gpsr.getLocation())
 
-@route('/')
-@route('/osm.html')
+@app.route('/')
+@app.route('/osm.html')
 def do_route():
-    return static_file("osm.html", root=".")
+    return render_template("osm.html")
 
-@route('/googlemap.html')
+@app.route('/googlemap.html')
 def do_googlemap():
-    return static_file("googlemap.html", root=".")
+    return render_template("googlemap.html")
 
-@route('/geolocation_marker.png')
-def do_marker():
-    return static_file("geolocation_marker.png", root=".")
-
-run(host='192.168.0.31', port=8008)
+if __name__ == '__main__':
+    app.run(host='localhost', port=8008)
