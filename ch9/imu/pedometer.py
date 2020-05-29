@@ -1,6 +1,6 @@
 try:
     import tkinter as tk
-except:
+except ImportError:
     import Tkinter as tk
 import LSM303DLHC
 #import MPU6050

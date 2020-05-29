@@ -9,7 +9,7 @@ query = cur.execute("select * from student")
 while True:
     student = cur.fetchone()
     if not student: break
-    print student
+    print(student)
 
 cur.close()
 db.close()

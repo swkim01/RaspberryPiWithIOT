@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import smbus
 import time
 
@@ -30,7 +30,7 @@ class L3G4200D(object):
 
         if self.bus.read_byte_data(self.address,
                 self.L3G4200D_REGISTER_WHO_AM_I)&0xFF is not 0xD3:
-            print "error"
+            print("error")
         # Enable x, y, z and bandwidth 800Hz, cutoff 30Hz and turn off power down
         self.bus.write_byte_data(self.address,
             self.L3G4200D_REGISTER_CTRL_REG1, 0xCF)

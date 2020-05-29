@@ -1,4 +1,7 @@
-import Tkinter as tk
+try:
+    import tkinter as tk
+except ImportError:
+    import Tkinter as tk
 import math
 import LSM303DLHC
 #import MPU6050
@@ -56,7 +59,7 @@ triangle2 = [(center[0],center[1]+100), (center[0]+10,center[1]), (center[0]-10,
 polygon_item2 = canvas.create_polygon(triangle2, fill="blue")
 
 def update():
-
+  sensor.read()
   angle_deg = sensor.calcTiltHeading()
   #sensor.read()
   #data = mpu.read()

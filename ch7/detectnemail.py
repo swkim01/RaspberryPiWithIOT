@@ -28,7 +28,7 @@ def sendmail(image):
     server.ehlo_or_helo_if_needed()
     ret, m = server.login(userid, passwd)
     if ret != 235:
-        print "login fail"
+        print("login fail")
         return
     server.sendmail('me', to, msg.as_string())
     server.quit()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
     cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
     if cam.isOpened() == False:
-        print "Cam isn't opened"
+        print("Cam isn't opened")
         exit()
     i = [None, None, None]
     for n in range(3):
@@ -56,7 +56,7 @@ if __name__ == "__main__":
         if checkFlag >= 10 and flag == False:
             sendmail(i[2])
             flag = True
-            print "Invader is coming!"
+            print("Invader is coming!")
         elif count == 0 and flag == True:
             flag = False
             checkFlag = 0

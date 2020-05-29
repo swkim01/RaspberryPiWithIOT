@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#/usr/bin/python3
 
 import numpy as np
 import cv2
@@ -6,7 +6,7 @@ import cv2
 def clock():
     return cv2.getTickCount() / cv2.getTickFrequency()
 
-def draw_str(dst, (x, y), s):
+def draw_str(dst, x, y, s):
     cv2.putText(dst, s, (x+1, y+1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness = 2, lineType=cv2.LINE_AA)
     cv2.putText(dst, s, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.0, (255, 255, 255), lineType=cv2.LINE_AA)
 
@@ -25,8 +25,9 @@ def draw_rects(img, rects, color):
 
 if __name__ == '__main__':
 
-    #cascade_fn = "/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml"
-    cascade_fn = "/usr/local/share/OpenCV/lbpcascades/lbpcascade_frontalface.xml"
+    #cascade_fn = "/usr/local/share/OpenCV/lbpcascades/lbpcascade_frontalface.xml"
+    #cascade_fn = "haarcascade_frontalface_default.xml"
+    cascade_fn = "lbpcascade_frontalface.xml"
     #nested_fn  = "/usr/local/share/OpenCV//haarcascades/haarcascade_eye.xml"
 
     cascade = cv2.CascadeClassifier(cascade_fn)
@@ -52,7 +53,7 @@ if __name__ == '__main__':
         #    draw_rects(vis_roi, subrects, (255, 0, 0))
         dt = clock() - t
 
-        draw_str(vis, (20, 20), 'time: %.1f ms' % (dt*1000))
+        draw_str(vis, 20, 20, 'time: %.1f ms' % (dt*1000))
         cv2.imshow('facedetect', vis)
 
         if 0xFF & cv2.waitKey(5) == 27:

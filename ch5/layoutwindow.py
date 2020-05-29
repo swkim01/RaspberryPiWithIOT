@@ -1,17 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtWidgets
 
-class LayoutWindow(QtGui.QWidget):
+class LayoutWindow(QtWidgets.QWidget):
     def __init__(self):
-        QtGui.QWidget.__init__(self)
+        QtWidgets.QWidget.__init__(self)
         self.setWindowTitle("Layout Window")
-        hbox = QtGui.QHBoxLayout(self)
-        vbox = QtGui.QVBoxLayout()
-        label1 = QtGui.QLabel("Top", self, 0)
-        label2 = QtGui.QLabel("Bottom", self, 0)
-        label3 = QtGui.QLabel("Right", self, 0)
+        hbox = QtWidgets.QHBoxLayout(self)
+        vbox = QtWidgets.QVBoxLayout()
+        label1 = QtWidgets.QLabel("Top", self, 0)
+        label2 = QtWidgets.QLabel("Bottom", self, 0)
+        label3 = QtWidgets.QLabel("Right", self, 0)
         vbox.addWidget(label1)
         vbox.addWidget(label2)
         hbox.addLayout(vbox)
@@ -19,8 +19,8 @@ class LayoutWindow(QtGui.QWidget):
         self.resize(150, 100)
 
 if __name__ == "__main__" :
-    app = QtGui.QApplication(sys.argv)
-    #button = QtGui.QPushButton('Hello')
+    app = QtWidgets.QApplication(sys.argv)
+    #button = QtWidgets.QPushButton('Hello')
     #button.clicked.connect(hello)
     #button.show()
     lw = LayoutWindow()

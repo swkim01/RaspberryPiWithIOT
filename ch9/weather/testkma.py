@@ -2,10 +2,9 @@
 import math
 try:
     from urllib.request import urlopen #python 3
-    from urllib.error import HTTPError, URLError
 except ImportError:
     from urllib2 import urlopen #python 2
-    from urllib2 import HTTPError, URLError
+#import urllib2
 from xml.dom import minidom
 
 RE = 6371.00877 # 지구 반경(km)
@@ -102,7 +101,7 @@ try:
         print(hour.firstChild.data.strip(), \
               wfKor.firstChild.data.strip(), \
               temp.firstChild.data.strip())
-except HTTPError as e:
+except urllib2.HTTPError, e:
     print("HTTP error: %d" % e.code)
-except URLError as e:
+except urllib2.URLError, e:
     print("Network error: %s" % e.reason.args[1])

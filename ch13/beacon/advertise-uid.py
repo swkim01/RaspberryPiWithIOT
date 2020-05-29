@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 #
 # Copyright 2015 Opera Software ASA. All rights reserved.
 #
@@ -38,8 +38,8 @@ instance = "AABBCCDDEEFF"
 if len(args) > 0:
     namespace = args[0]
     instance = args[1]
-    print namespace
-    print instance
+    print(namespace)
+    print(instance)
 
 def verboseOutput(text):
     if options.verbose:
@@ -47,16 +47,21 @@ def verboseOutput(text):
 
 def encodeUid(namespace, instance):
     data = []
-    narray = map(ord, namespace.decode("hex"))
+    #narray = map(ord, namespace.decode("hex"))
+    #narray = map(lambda c: hex(ord(c)), namespace)
+    narray = bytes.fromhex(namespace)
     data += narray
-    iarray = map(ord, instance.decode("hex"))
+    #iarray = map(ord, instance.decode("hex"))
+    #iarray = map(lambda c: hex(ord(c)), instance)
+    iarray = bytes.fromhex(instance)
     data += iarray
     return data
 
 def encodeMessage(namespace, instance):
     encodedUid = encodeUid(namespace, instance)
-    print encodedUid
+    print(encodedUid)
     encodedUidLength = len(encodedUid)
+    print(encodedUidLength)
 
     verboseOutput("Encoded uid length: " + str(encodedUidLength))
 

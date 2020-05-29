@@ -6,6 +6,7 @@ try:
 except ImportError:
     from urllib2 import urlopen #python 2
     from urllib2 import HTTPError, URLError
+#import urllib2
 from xml.dom import minidom
 
 RE = 6371.00877 # 지구 반경(km)

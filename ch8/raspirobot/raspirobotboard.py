@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import serial
 import time
 
-DEVICE = '/dev/ttyAMA0'
+DEVICE = '/dev/serial0'
 BAUD = 9600
 
 LEFT_GO_PIN = 17

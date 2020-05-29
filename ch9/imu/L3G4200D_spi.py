@@ -25,10 +25,10 @@ class L3G4200D(object):
     def __init__(self):
         self.spi = spidev.SpiDev()
         self.spi.open(0, 0)
-        #print "mode=%d, max_speed_hz=%d" % (self.spi.mode, self.spi.max_speed_hz)
+        #print("mode=%d, max_speed_hz=%d" % (self.spi.mode, self.spi.max_speed_hz))
 
         if self.read_register(self.WHO_AM_I)&0xFF is not 0xD3:
-            print "error"
+            print("error")
         # Enable x, y, z and bandwidth 800Hz, cutoff 30Hz and turn off power down
         self.write_register(self.CTRL_REG1, 0xCF)
         # adjust/use the HPF cutoff 30Hz

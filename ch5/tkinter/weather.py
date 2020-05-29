@@ -1,14 +1,16 @@
 #-*- coding: utf-8 -*-
 try:
     from urllib.request import urlopen #python 3
+    from tkinter import *
 except ImportError:
     from urllib2 import urlopen #python 2
-from Tkinter import *
+    from Tkinter import *
 
 def get_weather(city):
     page = urlopen("http://www.kma.go.kr/weather/observation/currentweather.jsp")
     text = page.read().decode("euckr")
-    text = text[text.find(">"+city):]
+    text = text[text.find(">"+city+"<"):]
+    print(text.find("<td>"))
     for i in range(5):
         text = text[text.find("<td>")+1:]
     start = 3
@@ -33,8 +35,6 @@ OptionMenu(app, cities, *city_list).pack(side="right")
 
 tempV = StringVar()
 tempV.set("온도: ")
-Label(app, textvariable=tempV).pack(pady=10, side="top")
-
-Button(app, text="Refresh", command=refresh).pack(pady=10, side="bottom")
-
+Label(app, textvariable=tempV).pack(pady=40, side="top")
+Button(app, text="Refresh", command=refresh).pack(pady=40, side="bottom")
 app.mainloop()

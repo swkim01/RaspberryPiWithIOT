@@ -128,7 +128,7 @@ class Axis(object):
         vertices = self.vertices
  
         # Draw all 3 lines of the axis
-        for line in xrange(self.num_lines):
+        for line in range(self.num_lines):
             glColor3fv(colors[line])
             glLineWidth(5)
             glBegin(GL_LINES)
@@ -177,7 +177,7 @@ class Cube(object):
     def render(self):
         # Draw all 6 faces of the cube
         glBegin(GL_QUADS)
-        for face_no in xrange(self.num_faces):
+        for face_no in range(self.num_faces):
             glNormal3dv(self.normals[face_no])
             v1, v2, v3, v4 = self.vertex_indices[face_no]
             glColor3fv(self.colors[face_no])

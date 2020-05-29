@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import smbus
 import math
 
@@ -26,7 +26,7 @@ class LSM303DLHC(object):
     LSM303_MAGGAIN_5_6 = 0xC0 # +/- 5.6
     LSM303_MAGGAIN_8_1 = 0xE0 # +/- 8.1
 
-    a = [0., 0., 0.]
+    a = [0.0, 0.0, 0.0]
     m = [0., 0., 0.]
 
     def __init__(self, debug=False, hires=False):

@@ -30,7 +30,7 @@ while True:
     else:
         GPIO.output(m1a_pin, True)
         GPIO.output(m1b_pin, False)
-    print "speed=", speed
+    print("speed=", speed)
     if abs(speed) < 100:
         servo.set_servo(en_pin, abs(speed)*200)
     else:

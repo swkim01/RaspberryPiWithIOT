@@ -1,13 +1,15 @@
-from RPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 pwm_pin = 18
-servo = GPIO.PWM.Servo()
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(pwm_pin, GPIO.OUT)
+pwm = GPIO.PWM(pwm_pin, 100)
 angle = 4
-servo.set_servo(pwm_pin, angle * 100)
+pwm.start(angle)
 
 while True:
-    cmd = raw_input("Command, f/r: ")
+    cmd = input("Command, f/r: ")
     direction = cmd[0]
     if direction == "f":
         angle += 1
@@ -15,9 +17,7 @@ while True:
         angle -= 1
     if angle < 4:
         angle = 4
-    elif angle > 23:
-        angle = 23
-    print "angle=", (angle-4)*10
-    servo.set_servo(pwm_pin, angle * 100)
-
-GPIO.cleanup()
+    elif angle > 22:
+        angle = 22
+    print("angle=", (angle-4)*10)
+    pwm.ChangeDutyCycle(angle)

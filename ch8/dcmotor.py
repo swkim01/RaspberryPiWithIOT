@@ -29,5 +29,5 @@ while True:
     else:
         GPIO.output(m1a_pin, True)
         GPIO.output(m1b_pin, False)
-    print "speed=", speed
+    print("speed=", speed)
     pwm.ChangeDutyCycle(abs(speed))

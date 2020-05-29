@@ -1,6 +1,7 @@
 import pygame.mixer
-from Tkinter import *
-import tkFileDialog
+from tkinter import *
+from tkinter import filedialog
+#import tkFileDialog
 
 class MusicPlayer(Frame):
     def __init__(self, root):
@@ -17,7 +18,8 @@ class MusicPlayer(Frame):
                     orient=HORIZONTAL).pack(**button_opt)
 
     def askopenfile(self):
-        self.filename = tkFileDialog.askopenfilename(initialdir="/home/pi")
+        #self.filename = tkFileDialog.askopenfilename(initialdir="/home/pi")
+        self.filename = filedialog.askopenfilename(initialdir="/home/pi")
         if self.filename.endswith('.mp3'):
             pygame.mixer.music.load(self.filename)
         else:

@@ -36,17 +36,17 @@ if __name__ == '__main__':
             # In the main thread, every 1 seconds print the current data
             os.system('clear')
             location = gpsr.getLocation()
-            print '          GPS Data'
-            print '--------------------------------'
-            print 'latitude    ' , location["lat"]
-            print 'longitude   ' , location["lon"]
-            print 'altitude    ' , location["alt"]
-            print 'speed       ' , location["speed"]
+            print('          GPS Data')
+            print('--------------------------------')
+            print('latitude    ' , location["lat"])
+            print('longitude   ' , location["lon"])
+            print('altitude    ' , location["alt"])
+            print('speed       ' , location["speed"])
             time.sleep(1)
 
     except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
-        print "\nKilling Thread..."
+        print("\nKilling Thread...")
         gpsr.running = False
         gpsr.join() # wait for the thread to finish what it's doing
-    print "Done.\nExiting."
+    print("Done.\nExiting.")
 

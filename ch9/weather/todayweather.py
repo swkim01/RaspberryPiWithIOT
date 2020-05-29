@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import kma
 import RPi.GPIO as GPIO
 import time
