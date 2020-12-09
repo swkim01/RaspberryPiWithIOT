@@ -31,9 +31,6 @@
 [submodule "ch10/pyFirmata"]
 	path = ch10/pyFirmata
 	url = https://github.com/tino/pyFirmata.git
-[submodule "ch11/nodemcu/luatool"]
-	path = ch11/nodemcu/luatool
-	url = https://github.com/4refr0nt/luatool.git
 [submodule "ch12/webiopi/webiopi-dht"]
 	path = ch12/webiopi/webiopi-dht
 	url = https://github.com/swkim01/webiopi-dht.git
