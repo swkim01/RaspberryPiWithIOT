@@ -19,11 +19,12 @@ app = Flask(__name__, template_folder=".")
 
 @app.route('/led', methods=['POST'])
 def controlled():
-    l = request.body.read()
+    l = request.get_data()
     if l == "ON":
         u = urlopen(led_url, "on")
     elif l == "OFF":
         u = urlopen(led_url, "off")
+    return ""
 
 @app.route('/events')
 def getevents():
