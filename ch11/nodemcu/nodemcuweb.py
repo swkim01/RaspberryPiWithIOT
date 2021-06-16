@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from flask import Flask, Response, render_template
+from flask import Flask, request, Response, render_template
 try:
     from urllib.request import urlopen #python 3
     from urllib.error import HTTPError, URLError
