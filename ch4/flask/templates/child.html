@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        h2 { color: red; }
+        .items { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h2>Items</h2>
+    <div class="items">
+      <ul>
+      {% for n in items %}
+        <li>{{ n }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+{% endblock %}

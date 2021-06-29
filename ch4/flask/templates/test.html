@@ -1,0 +1,9 @@
+<h2>
+{# name = person #}
+{{person}}’s Friends
+</h2>
+<ul>
+  {% for name in friends %}
+    <li>{{name}}</li>
+  {% endfor %}
+</ul>
