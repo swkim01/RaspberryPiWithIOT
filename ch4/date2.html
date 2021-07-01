@@ -11,6 +11,7 @@
             if (request.readyState == 4 && request.status == 200) {
                 //date.innerHTML = request.responseXML;
                 date.innerHTML = request.responseText;
+                setTimeout("getDate()", 1000);
             }
         };
         request.send();
