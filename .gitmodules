@@ -49,3 +49,12 @@
 [submodule "fritzing"]
 	path = fritzing
 	url = https://github.com/swkim01/fritzing.git
+[submodule "ch6/Adafruit_Python_CharLCD"]
+	path = ch6/Adafruit_Python_CharLCD
+	url = https://github.com/adafruit/Adafruit_Python_CharLCD
+[submodule "ch6/Adafruit_Python_DHT"]
+	path = ch6/Adafruit_Python_DHT
+	url = https://github.com/adafruit/Adafruit_Python_DHT
+[submodule "ch6/Adafruit_Python_GPIO"]
+	path = ch6/Adafruit_Python_GPIO
+	url = https://github.com/adafruit/Adafruit_Python_GPIO
