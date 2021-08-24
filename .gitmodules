@@ -9,7 +9,7 @@
 	url = https://github.com/doceme/py-spidev.git
 [submodule "ch6/waveshare-dtoverlays"]
 	path = ch6/waveshare-dtoverlays
-	url = https://github.com/swkim01/waveshare-dtoverlays.git
+	url = https://github.com/swkim01/waveshare-dtoverlays
 [submodule "ch7/adafruit-pi-cam"]
 	path = ch7/adafruit-pi-cam
 	url = https://github.com/adafruit/adafruit-pi-cam.git
