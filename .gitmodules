@@ -4,12 +4,6 @@
 [submodule "ch4/rest"]
 	path = ch4/rest
 	url = https://github.com/swkim01/rest.git
-[submodule "ch6/Adafruit-Raspberry-Pi-Python-Code"]
-	path = ch6/Adafruit-Raspberry-Pi-Python-Code
-	url = https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code.git
-[submodule "ch6/Adafruit_python_DHT"]
-	path = ch6/Adafruit_python_DHT
-	url = https://github.com/adafruit/Adafruit_python_DHT.git
 [submodule "ch6/py-spidev"]
 	path = ch6/py-spidev
 	url = https://github.com/doceme/py-spidev.git
