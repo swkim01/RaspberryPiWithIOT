@@ -16,9 +16,6 @@
 [submodule "ch8/rccar"]
 	path = ch8/rccar
 	url = https://github.com/swkim01/rccar.git
-[submodule "ver1/ch8/urobot"]
-	path = ver1/ch8/urobot
-	url = https://github.com/swkim01/urobot.git
 [submodule "ch9/RTIMULib"]
 	path = ch9/RTIMULib
 	url = https://github.com/swkim01/RTIMULib.git
@@ -52,3 +49,6 @@
 [submodule "ch6/Adafruit_Python_GPIO"]
 	path = ch6/Adafruit_Python_GPIO
 	url = https://github.com/adafruit/Adafruit_Python_GPIO
+[submodule "ver1/ch8/urobot"]
+	path = ver1/ch8/urobot
+	url = https://github.com/swkim01/urobot
