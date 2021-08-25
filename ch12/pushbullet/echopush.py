@@ -11,14 +11,14 @@ def on_push(data):
     latest = pushes[1][0]
     print latest
     if latest.get('source_device_iden') == phone.device_iden:
-        print 'Got a message.'
+        print('Got a message.')
         body = latest.get('body')
         if 'hello' in body:
             push = pb.push_note('raspberrypi', "world", device=phone)
 
 if __name__ == "__main__":
     pb = PushBullet(api_key)
-    print pb.devices
+    print(pb.devices)
     phone = pb.devices[0]
     s = Listener(account=pb, on_push=on_push,
                  http_proxy_host=HTTP_PROXY_HOST,

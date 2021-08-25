@@ -1,5 +1,4 @@
-#-*- coding: 'utf-8' -*-
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import pexpect
 
 child = pexpect.spawn('bash')
@@ -13,5 +12,5 @@ with open('pexpect.log', 'w') as f:
     #print child.before.decode('utf-8')
     #index = child.expect("\$\x1b\[00m ")
     index = child.expect("\$[^ ]* ")
-    print child.before[len(cmd)+2:].decode('utf-8')
-    print child.after.decode('utf-8')
+    print(child.before[len(cmd)+2:].decode('utf-8'))
+    print(child.after.decode('utf-8'))

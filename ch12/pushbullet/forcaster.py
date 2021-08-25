@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from pushbullet import PushBullet
 from pushbullet import Listener
 import RPi.GPIO as GPIO
