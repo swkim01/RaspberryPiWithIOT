@@ -16,8 +16,8 @@
 [submodule "ch8/rccar"]
 	path = ch8/rccar
 	url = https://github.com/swkim01/rccar.git
-[submodule "ch8/urobot"]
-	path = ch8/urobot
+[submodule "ver1/ch8/urobot"]
+	path = ver1/ch8/urobot
 	url = https://github.com/swkim01/urobot.git
 [submodule "ch9/RTIMULib"]
 	path = ch9/RTIMULib
