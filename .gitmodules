@@ -25,9 +25,6 @@
 [submodule "ch12/webiopi/webiopi-dht"]
 	path = ch12/webiopi/webiopi-dht
 	url = https://github.com/swkim01/webiopi-dht.git
-[submodule "ch12/telegram/pytg"]
-	path = ch12/telegram/pytg
-	url = https://github.com/luckydonald/pytg.git
 [submodule "ch12/telegram/python-telegram-bot"]
 	path = ch12/telegram/python-telegram-bot
 	url = https://github.com/leandrotoledo/python-telegram-bot.git
