@@ -1,0 +1,74 @@
+{
+    "manifest": {
+        "displayName": "LED Switch",
+        "invocationName": "LED Switch",
+        "category": "PRODUCTIVITY"
+    },
+    "locale": "ko",
+    "actions": [
+        {
+            "name": "com.acme.actions.led_switch",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.acme.intents.led_switch",
+                "parameters": [
+                    {
+                        "name": "myled_ko",
+                        "type": "LEDState"
+                    }
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "불 $LEDState:myled_ko 줄래"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "네 불을 $myled_ko.raw 겠습니다."
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.acme.commands.led_switch",
+                                    "params": {
+                                        "switchKey": "$myled_ko"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "types": [
+        {
+            "name": "$LEDState",
+            "entities": [
+                {
+                    "key": "ON",
+                    "synonyms": [
+                        "켜"
+                    ]
+                },
+                {
+                    "key": "OFF",
+                    "synonyms": [
+                        "꺼",
+                    ]
+                }
+            ]
+        }
+    ]
+}
