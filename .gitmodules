@@ -31,12 +31,6 @@
 [submodule "ch12/telegram/python-telegram-bot"]
 	path = ch12/telegram/python-telegram-bot
 	url = https://github.com/leandrotoledo/python-telegram-bot.git
-[submodule "ch13/mqtt"]
-	path = ch13/mqtt
-	url = https://github.com/swkim01/mqtt.git
-[submodule "ch13/GreenHouse"]
-	path = ch13/GreenHouse
-	url = https://github.com/swkim01/GreenHouse.git
 [submodule "fritzing"]
 	path = fritzing
 	url = https://github.com/swkim01/fritzing.git
@@ -55,3 +49,9 @@
 [submodule "ch10/ble"]
 	path = ch10/ble
 	url = https://github.com/swkim01/ble
+[submodule "ch11/mqtt"]
+	path = ch11/mqtt
+	url = https://github.com/swkim01/mqtt
+[submodule "ver1/ch12/telegram/pytg"]
+	path = ver1/ch12/telegram/pytg
+	url = https://github.com/luckydonald/pytg.git
