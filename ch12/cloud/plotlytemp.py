@@ -26,7 +26,7 @@ layout = Layout(
 )
 
 fig = Figure(data=[trace1], layout=layout)
-print py.plot(fig, filename="RPi Streaming Example")
+print(py.plot(fig, filename="RPi Streaming Example"))
 
 i = 0
 stream = py.Stream(stream_token)
@@ -34,7 +34,7 @@ stream.open()
 
 def read_temp():
   if DEBUG:
-    print "reading temp"
+    print("reading temp")
   humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
   return temperature
 

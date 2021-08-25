@@ -11,7 +11,7 @@ pin = 18
 
 def read_temp():
   if DEBUG:
-    print "reading temp"
+    print("reading temp")
   humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
   return temperature
 
@@ -28,6 +28,6 @@ while True:
         data = response.read()
         conn.close()
     except:
-        print "Connection failed"
+        print("Connection failed")
 
     time.sleep(10)
