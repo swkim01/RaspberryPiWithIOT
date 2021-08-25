@@ -52,3 +52,6 @@
 [submodule "ver1/ch8/urobot"]
 	path = ver1/ch8/urobot
 	url = https://github.com/swkim01/urobot
+[submodule "ch10/ble"]
+	path = ch10/ble
+	url = https://github.com/swkim01/ble
