@@ -103,7 +103,7 @@ def getWeather(lat, lon):
 codes = ['맑음', '구름 조금', '구름 많음', '흐림', '비', '눈/비', '눈']
 def getWeatherCode(wfKor):
     for i, code in enumerate(codes):
-        if wfKor.encode('utf-8') == code:
+        if wfKor == code:
             return i + 1
 
 if __name__ == '__main__':
