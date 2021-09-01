@@ -13,7 +13,7 @@ pwm.start(0)
 
 speed=0
 while True:
-    cmd = raw_input("Command, f/r :")
+    cmd = input("Command, f/r :")
     direction = cmd[0]
     if direction == "f":
         if speed < 100: speed+=10
