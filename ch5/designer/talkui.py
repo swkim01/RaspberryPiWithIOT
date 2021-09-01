@@ -49,7 +49,7 @@ class TalkMainWindow(QtWidgets.QMainWindow):
         self.socket.write(message.encode("utf-8"))
 
     def sendClick(self):
-        self.send("say %s" % (self.ui.messageEdit.text()))
+        self.send("msg %s" % (self.ui.messageEdit.text()))
         self.ui.messageEdit.clear()
         self.ui.messageEdit.setFocus()
 

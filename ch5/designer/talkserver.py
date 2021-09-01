@@ -34,7 +34,7 @@ class Server(QtNetwork.QTcpServer):
                 name = value
                 self.clients[socket]["name"] = name
             self.sendAll(u"<em>%s 님이 들어왔습니다.</em>" % name)
-        elif cmd == "say":
+        elif cmd == "msg":
             message = "<%s> : %s" % (self.clients[socket]["name"], value)
             self.sendAll(message)
 

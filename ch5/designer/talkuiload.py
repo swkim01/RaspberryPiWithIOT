@@ -46,7 +46,7 @@ class TalkMainWindow(object):
         self.socket.write(message.encode("utf-8"))
 
     def sendClick(self):
-        self.send("say %s" % (self.messageEdit.text()))
+        self.send("msg %s" % (self.messageEdit.text()))
         self.messageEdit.clear()
         self.messageEdit.setFocus()
 
