@@ -73,7 +73,7 @@ def hi():
 
 @app.errorhandler(404)
 def error404(error):
-    return "This pag is not existed."
+    return "This page is not existed."
 
 @app.route('/wrong')
 def wrong():
