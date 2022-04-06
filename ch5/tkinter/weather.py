@@ -8,7 +8,8 @@ except ImportError:
 
 def get_weather(city):
     page = urlopen("http://www.kma.go.kr/weather/observation/currentweather.jsp")
-    text = page.read().decode("euckr")
+    #text = page.read().decode("euckr")
+    text = page.read().decode("utf-8")
     text = text[text.find(">"+city+"<"):]
     print(text.find("<td>"))
     for i in range(5):
