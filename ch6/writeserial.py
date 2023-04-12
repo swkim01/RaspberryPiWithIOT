@@ -8,5 +8,5 @@ con = serial.Serial(port='/dev/ttyUSB0',
                    timeout=1)
 
 while True:
-    text = raw_input("Input any text message: ")
+    text = input("Input any text message: ")
     con.write(text.encode())
