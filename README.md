@@ -1,5 +1,5 @@
 # RaspberryPi With IOT Book
-programs for raspberrypi book
+programs for the raspberrypi book
 
 You can download the source via the following command.
 ```shell
