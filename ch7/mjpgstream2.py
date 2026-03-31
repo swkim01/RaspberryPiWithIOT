@@ -70,7 +70,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
             self.end_headers()
             upfilecontent = query.get('upfile')
-            print "filecontent", upfilecontent[0]
+            print("filecontent", upfilecontent[0])
             value=int(upfilecontent[0])
             cameraQuality=max(2, min(99, value))
             self.wfile.write("<HTML>POST OK. Camera Set to<BR><BR>");
@@ -86,10 +86,10 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 def main():
     try:
         server = ThreadedHTTPServer(('192.168.0.48', 8008), MyHandler)
-        print 'started httpserver...'
+        print('started httpserver...')
         server.serve_forever()
     except KeyboardInterrupt:
-        print '^C received, shutting down server'
+        print('^C received, shutting down server')
         server.socket.close()
 
 if __name__ == '__main__':
