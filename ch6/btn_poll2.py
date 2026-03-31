@@ -11,5 +11,5 @@ while True:
     #value = GPIO.input(24)
     if value == True:
         count = count + 1
-        print count
+        print(count)
     time.sleep(0.1)
