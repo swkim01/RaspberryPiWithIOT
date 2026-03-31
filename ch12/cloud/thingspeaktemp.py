@@ -24,7 +24,7 @@ while True:
         conn.request("POST", "/update", params, headers)
         response = conn.getresponse()
         if DEBUG:
-            print response.status, response.reason
+            print(response.status, response.reason)
         data = response.read()
         conn.close()
     except:
