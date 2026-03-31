@@ -9,7 +9,7 @@ phone = None
 def on_push(data):
     pushes = pb.get_pushes()
     latest = pushes[1][0]
-    print latest
+    print(latest)
     if latest.get('source_device_iden') == phone.device_iden:
         print('Got a message.')
         body = latest.get('body')
