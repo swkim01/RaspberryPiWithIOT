@@ -10,5 +10,5 @@ while True:
     if value == False:
     #if value == True:
         count = count + 1
-        print count
+        print(count)
     time.sleep(0.1)
