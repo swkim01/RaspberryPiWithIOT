@@ -31,11 +31,11 @@ def getevents():
 
         #js = json.JSONDecoder()
         #d = js.decode(data)
-        #print d
+        #print(d)
     except urllib2.HTTPError, e:
-        print "HTTP error: %d" % e.code
+        print("HTTP error: %d" % e.code)
     except urllib2.URLError, e:
-        print "Network error: %s" % e.reason.args[1]
+        print("Network error: %s" % e.reason.args[1])
 
     return data
 
