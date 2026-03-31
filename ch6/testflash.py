@@ -16,10 +16,10 @@ def ee_read(offset):
 for i in range(256):
     ee_write(i, i)
 if ee_read(1) != 1:
-    print "open error"
+    print("open error")
 else:
     for i in range(256):
-        print ee_read(i)
+        print(ee_read(i))
         time.sleep(0.005)
 
 spi.close()
