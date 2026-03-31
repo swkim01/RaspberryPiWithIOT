@@ -4,7 +4,7 @@ api_key = "<API KEY>"
 
 pb = PushBullet(api_key)
 pushes = pb.get_pushes()
-print pushes
+print(pushes)
 latest = pushes[1][0]
 if 'TodaysWeather' in latest.get('title'):
     body = latest.get('body')
