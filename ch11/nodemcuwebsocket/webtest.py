@@ -10,7 +10,7 @@ base_url = "http://192.168.0.35/"
 led_url = base_url + "led"
 events_url = base_url + "events"
 
-print led_url
+print(led_url)
 u = urlopen(led_url, "on")
 
 time.sleep(2)
@@ -19,18 +19,18 @@ u = urlopen(led_url, "off")
 
 time.sleep(2)
 
-print events_url
+print(events_url)
 
 u = urlopen(events_url)
 try:
     #data = u.readlines()
     data = u.read()
-    #print data, len(data)
+    #print(data, len(data))
 
     js = json.JSONDecoder()
     d = js.decode(data)
-    print d
+    print(d)
 except urllib2.HTTPError, e:
-    print "HTTP error: %d" % e.code
+    print("HTTP error: %d" % e.code)
 except urllib2.URLError, e:
-    print "Network error: %s" % e.reason.args[1]
+    print("Network error: %s" % e.reason.args[1])
