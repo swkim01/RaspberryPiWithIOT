@@ -10,7 +10,7 @@ bus = smbus.SMBus(1)  # if rev 1, use SMBus(0)
 
 #Read all the unput lines
 #value=bus.read_byte(I2C_ADDRESS)
-#print "%02X" % value
+#print("%02X" % value)
 
 #dt = datetime.datetime.now()
 #tm = dt.timetuple()
@@ -19,5 +19,5 @@ bus = smbus.SMBus(1)  # if rev 1, use SMBus(0)
 #bus.write_i2c_block_data(I2C_ADDRESS, 0x02, data)
 
 rdata = bus.read_i2c_block_data(I2C_ADDRESS, 0x02)
-print rdata
+print(rdata)
 #os.system("hwclock --set -s %s" % str(dt))
