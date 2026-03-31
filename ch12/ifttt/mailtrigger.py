@@ -39,7 +39,7 @@ def sendmail(from_user, to_user, cc_users, subject, text, attach):
     server.ehlo_or_helo_if_needed()
     ret, m = server.login(userid, passwd)
     if ret != 235:
-        print "login fail"
+        print("login fail")
         return
     server.sendmail(from_user, to_user, msg.as_string())
     server.quit()
