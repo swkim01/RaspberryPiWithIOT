@@ -8,7 +8,7 @@ def read(channel):
     try:
         bus.write_byte(address, cmd+channel) 
         bus.read_byte(address) # dummy read
-    exception Exception as e:
+    except Exception as e:
         print(e)
     return bus.read_byte(address)
 
